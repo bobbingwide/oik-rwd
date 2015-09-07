@@ -241,12 +241,63 @@ function oik_rwd_apply_width_mapping( $width, $map ) {
  */
 function oik_rwd_default_media_rules() {
   // $mr[] = array( "mq" => "max-width: 768px", "mapping" => "25,50,75,50,100,50", "padding" => "2,1,5,2,10,3" );
-  $mr[] = array( "mq" => "max-width: 768px", "mapping" => "100,100", "padding" => "2,1,5,2,10,3" );
+  $max_width = oik_rwd_adjusted_max_width_for_context();
+  $mr[] = array( "mq" => "max-width: ${max_width}px", "mapping" => "100,100", "padding" => "2,1,5,2,10,3" );
   $mr[] = array( "mq" => "max-width: 480px", "mapping" => "33,100,66,50,100,100", "padding" => "10,2" );
   $mr[] = array( "mq" => "max-width: 320px", "mapping" => "100,100", "padding" => "10,1" );
   return( $mr ); 
 }
 
+/**
+ * Return the max-width in pixels taking into account the context
+ *
+ * I started writing these comments
+ * then realised it would be just as easy to get the user to type in a single number
+ * rather than mess about with calculations. 
+ 
+ * Here's some documentation explaining what would have needed to have been done...
+ * 
+ * The RWD classes are intended for use within the main content
+ * which may be next to some sidebars and then further padded out by left and right margins. 
+ * 
+ * +--------+---------------------------------+--------+
+ * | left   |  body                           | right  |
+ * | margin |                                 | margin |
+ * |        +-----------------------+---------+        |
+ * |        |   main content        | sidebar |        |
+ * |        |   breakpoint          |         |        |
+ * +--------+-----------------------+---------+--------+ 
+ * So the CSS we might have in the stylesheet is
+ *  body { width: 80%; margin: 0 auto; }
+ *  sidebar { width: 30%; }
+ * 
+ * The "breakpoint" is the minimum width we allow the main content to reduce to before
+ * we start applying media query logic to adjust the div widths, padding and margins
+ *
+ * As you can see this figure is nowhere near the max-width.
+ * We have to calculate what this max-width would be given the constraints:
+ * - breakpoint - min width in pixels before the main content breaks  
+ * - sidebar - %age to allow for sidebars 
+ * - margins - %age to allow for margins
+ *
+ * Calculation:
+ * 
+ * body_width = breakpoint + ( breakpoint x ( sidebar% / ( 100 - sidebar% ) ) )
+ * max_width = body_width + ( body_width x ( margins% / ( 100 - margins% ) ) )
+ *          
+ */                                              
+function oik_rwd_adjusted_max_width_for_context( ) {
+  static $max_width;
+  if ( is_null( $max_width ) ) {
+    $max_width = bw_get_option( "max_width", "bw_rwd" );
+    if ( $max_width && is_numeric( $max_width ) ) {
+      // Good - we'll use this - let's hope it's greater than or equal to 768.  
+    } else {
+      $max_width = 768;
+    }    
+  }
+  return( $max_width );
+}
 /**
  * Dynamically generate the CSS classes and media queries
  *

@@ -3,8 +3,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy
 * Requires at least: 3.9
-* Tested up to: 4.0-beta3
-* Stable tag: 0.4
+* Tested up to: 4.0
+* Stable tag: 0.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Use the oik-css plugin, oik custom CSS or another mechanism to define the CSS fo
 1. oik-rwd in action
 
 ## Upgrade Notice 
+# 0.5 
+Required where sidebars and main body margins need to be taken into account. Now dependent upon oik v2.3
+
 # 0.4 
 Required if you want to use padding or margins greater than 10%.
 
@@ -105,9 +108,12 @@ Never officially released.
 # 0.1 
 This version is dependent upin the oik base plugin
 
-
 ## Changelog 
-# 0.4
+# 0.5 
+* Added: Window width breakpoint (px ) field to specify the max-width setting when it needs to be higher than 768px.
+* Changed: oik_rwd_default_media_rules() uses oik_rwd_adjusted_max_width_for_context() to determine the user defined breakpoint
+
+# 0.4 
 * Fixed: Infinite loop when padding or margin exceeded the mapping values. [api oik_rwd_apply_width_mapping].
 
 # 0.3 
@@ -121,10 +127,8 @@ This version is dependent upin the oik base plugin
 * Added: For future use - oik-settings.php - OO implementation for handling oik settings - temporary location
 * Added: For future use - oik-rwd-mq.php - OIK_rwd_mq_settings class - Media Query settings for oik-rwd
 
-
 # 0.2 
 * Changed: Tweaks to the media queries for better behaviour on small devices.
-
 
 # 0.1 
 * Added: New plugin implementing the [bw_rwd] shortcode
