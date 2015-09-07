@@ -191,7 +191,9 @@ function oik_rwd_class( $class=null ) {
 
 /** 
  * Apply a mapping to the width to adjust for different devices
- * 
+ *
+ * Note: Added test on $i vs count( $map ) to fix infinite loop when $width exceeded the largest figure in the mapping.
+ *  
  * @param integer $width - original width 
  * @param mixed - mapping array or string representation
  * @return integer - new width
@@ -200,7 +202,7 @@ function oik_rwd_apply_width_mapping( $width, $map ) {
   $map = bw_as_array( $map );
   $i = 0;
   $new_width = null;
-  while ( $new_width === null ) {
+  while ( $new_width === null  && $i < count( $map ) ) {
     if ( $width <= $map[$i] ) {
       $new_width = $map[$i+1];
     }  
