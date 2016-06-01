@@ -3,8 +3,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy
 * Requires at least: 3.9
-* Tested up to: 4.0
-* Stable tag: 0.5
+* Tested up to: 4.5.2
+* Stable tag: 0.5.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,9 +90,15 @@ Use the oik-css plugin, oik custom CSS or another mechanism to define the CSS fo
 
 
 ## Screenshots 
-1. oik-rwd in action
+1. oik-rwd in action - width 1366 pixels
+2. oik-rwd in action - with 571 pixels
+3. oik-rwd in action - width 640 pixels
+4. oik-rwd in action - iPhone display
 
 ## Upgrade Notice 
+# 0.5.1 
+Tested with WordPress 4.5.2. Now dependent upon oik v3.0.0 or higher.
+
 # 0.5 
 Required where sidebars and main body margins need to be taken into account. Now dependent upon oik v2.3
 
@@ -109,6 +115,10 @@ Never officially released.
 This version is dependent upin the oik base plugin
 
 ## Changelog 
+# 0.5.1 
+* Changed: Now dependent upon oik v3.0.0 or higher
+* Tested: With WordPress 4.5.2 and WordPress MultiSite
+
 # 0.5 
 * Added: Window width breakpoint (px ) field to specify the max-width setting when it needs to be higher than 768px.
 * Changed: oik_rwd_default_media_rules() uses oik_rwd_adjusted_max_width_for_context() to determine the user defined breakpoint

@@ -3,13 +3,13 @@
 Plugin Name: oik-rwd
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-rwd
 Description: Dynamically generate responsive CSS classes for width and height (with margins and/or padding) using the [bw_rwd] shortcode
-Version: 0.5  
+Version: 0.5.1  
 Author: bobbingwide
-Author URI: http://www.bobbingwide.com
+Author URI: http://www.oik-plugins.com/author/bobbingwide
 License: GPL2
 
 
-    Copyright 2013, 2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2013-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -119,14 +119,9 @@ function oik_rwd_admin_menu() {
 }
 
 /**
- * Set the plugin server. Not necessary for a plugin on WordPress.org
- */
-// function oik_rwd_admin_menu() {
-//  oik_register_plugin_server( __FILE__ );
-//}
-
-/**
  * Implement "admin_notices" for oik-rwd to check plugin dependency
+ *
+ * Now dependent upon oik v3.0.0 or higher
  */ 
 function oik_rwd_activation() {
   static $plugin_basename = null;
@@ -137,7 +132,7 @@ function oik_rwd_activation() {
       require_once( "admin/oik-activation.php" );
     }
   }  
-  $depends = "oik:2.3";
+  $depends = "oik:3.0.0";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
