@@ -1,10 +1,11 @@
 # oik-rwd 
+![banner](https://raw.githubusercontent.com/bobbingwide/oik-rwd/master/assets/oik-rwd-banner-772x250.jpg)
 * Contributors: bobbingwide
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy
 * Requires at least: 3.9
-* Tested up to: 4.5.2
-* Stable tag: 0.5.1
+* Tested up to: 4.7.3
+* Stable tag: 0.5.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +97,9 @@ Use the oik-css plugin, oik custom CSS or another mechanism to define the CSS fo
 4. oik-rwd in action - iPhone display
 
 ## Upgrade Notice 
+# 0.5.2 
+Tested with WordPress 4.7.3.
+
 # 0.5.1 
 Tested with WordPress 4.5.2. Now dependent upon oik v3.0.0 or higher.
 
@@ -115,6 +119,9 @@ Never officially released.
 This version is dependent upin the oik base plugin
 
 ## Changelog 
+# 0.5.2 
+* Tested: With WordPress 4.7.3
+
 # 0.5.1 
 * Changed: Now dependent upon oik v3.0.0 or higher
 * Tested: With WordPress 4.5.2 and WordPress MultiSite
