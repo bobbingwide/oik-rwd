@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014
+<?php // (C) Copyright Bobbing Wide 2013, 2014, 2023
 
 /**
  * Dynamically generate the CSS class that is suggested by the class name
@@ -242,7 +242,7 @@ function oik_rwd_apply_width_mapping( $width, $map ) {
 function oik_rwd_default_media_rules() {
   // $mr[] = array( "mq" => "max-width: 768px", "mapping" => "25,50,75,50,100,50", "padding" => "2,1,5,2,10,3" );
   $max_width = oik_rwd_adjusted_max_width_for_context();
-  $mr[] = array( "mq" => "max-width: ${max_width}px", "mapping" => "100,100", "padding" => "2,1,5,2,10,3" );
+  $mr[] = array( "mq" => "max-width: {$max_width}px", "mapping" => "100,100", "padding" => "2,1,5,2,10,3" );
   $mr[] = array( "mq" => "max-width: 480px", "mapping" => "33,100,66,50,100,100", "padding" => "10,2" );
   $mr[] = array( "mq" => "max-width: 320px", "mapping" => "100,100", "padding" => "10,1" );
   return( $mr ); 

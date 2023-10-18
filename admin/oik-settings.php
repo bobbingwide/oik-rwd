@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014
+<?php // (C) Copyright Bobbing Wide 2014, 2023
 
 /**
  * OIK_actions class
@@ -33,7 +33,7 @@ class OIK_action {
     if( $action_cb ) {
       $this->action_cb = $action_cb;
     } else {
-      $this->action_cb = "${action}_cb"; 
+      $this->action_cb = "{$action}_cb";
     }  
   }
 }
